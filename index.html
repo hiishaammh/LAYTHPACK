@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>LAYTHPACK | متجر متنوع</title>
+<meta name="description" content="متجر LAYTHPACK - باكات متنوعة، أجهزة إلكترونية، باكات ملابس، عطور وإكسسوارات الأناقة.">
+<style>
+:root{--main:#075b63;--blue:#287bd8;--dark:#111827;--muted:#667085;--bg:#f5f7f9;--card:#fff;--sale:#a91435}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--dark);font-family:Tahoma,Arial,sans-serif}
+a{text-decoration:none;color:inherit}.container{max-width:1100px;margin:auto;padding:0 16px}
+.top{background:var(--main);color:#fff;text-align:center;padding:9px;font-weight:700}
+header{background:#fff;position:sticky;top:0;z-index:20;box-shadow:0 2px 12px #0001}
+.nav{height:70px;display:flex;align-items:center;gap:16px}.logo{font-size:25px;font-weight:900;color:var(--main);white-space:nowrap}
+.search{flex:1;display:flex;background:#f2f4f7;border-radius:13px;overflow:hidden}.search input{width:100%;border:0;background:transparent;padding:13px;font-size:15px;outline:0}.cart{border:0;background:var(--dark);color:#fff;border-radius:12px;padding:12px 15px;font-weight:800;cursor:pointer}
+.hero{margin:20px 0;background:linear-gradient(135deg,#075b63,#287bd8);color:#fff;border-radius:24px;padding:34px 24px;display:flex;justify-content:space-between;align-items:center;gap:20px;overflow:hidden}
+.hero h1{font-size:38px;margin:0 0 8px}.hero p{font-size:18px;margin:0 0 18px}.btn{display:inline-block;border:0;border-radius:12px;padding:12px 20px;background:#fff;color:var(--main);font-weight:900;cursor:pointer}
+.hero-art{font-size:100px}
+h2{text-align:center;margin:30px 0 18px;font-size:27px}
+.categories{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}.cat{background:#fff;border:2px solid transparent;border-radius:16px;padding:17px 8px;text-align:center;font-weight:900;cursor:pointer;box-shadow:0 2px 10px #0000000b}.cat:hover,.cat.active{border-color:var(--main);color:var(--main)}.cat span{display:block;font-size:32px;margin-bottom:5px}
+.toolbar{display:flex;justify-content:space-between;align-items:center;margin:25px 0 10px}.count{color:var(--muted)}
+.products{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.product{background:var(--card);border-radius:17px;overflow:hidden;box-shadow:0 3px 15px #0000000c;position:relative}.pic{height:190px;background:#eef2f5;display:flex;align-items:center;justify-content:center;font-size:72px}.info{padding:13px}.product h3{margin:0 0 5px;font-size:17px}.price{font-size:21px;font-weight:900;color:var(--sale)}.old{font-size:13px;color:#999;text-decoration:line-through;margin-right:5px}.orderbtn{width:100%;border:0;border-radius:10px;background:linear-gradient(90deg,var(--main),var(--blue));color:#fff;padding:11px;margin-top:10px;font-weight:900;cursor:pointer}
+.features{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:28px 0}.feature{background:#fff;border-radius:15px;padding:17px;text-align:center;font-weight:800}.feature b{display:block;font-size:27px;margin-bottom:5px}
+footer{margin-top:35px;background:#073f45;color:#fff;padding:25px 0;text-align:center}.small{font-size:13px;opacity:.85}
+.modal{position:fixed;inset:0;background:#0008;display:none;align-items:center;justify-content:center;padding:15px;z-index:50}.modal.show{display:flex}.box{background:#fff;width:min(520px,100%);border-radius:20px;padding:20px;max-height:90vh;overflow:auto}.box h2{text-align:right;margin-top:0}.close{float:left;border:0;background:#eee;border-radius:50%;width:35px;height:35px;cursor:pointer;font-size:20px}
+.form input,.form textarea{width:100%;padding:13px;margin:6px 0 10px;border:1px solid #ddd;border-radius:10px;font-size:15px}.form button{width:100%;border:0;border-radius:12px;background:#16a34a;color:#fff;padding:14px;font-size:18px;font-weight:900;cursor:pointer}
+@media(max-width:800px){.products{grid-template-columns:repeat(2,1fr)}.categories{grid-template-columns:repeat(3,1fr)}.features{grid-template-columns:repeat(2,1fr)}.hero h1{font-size:29px}.hero-art{font-size:70px}}
+@media(max-width:520px){.nav{height:auto;padding:10px 0;flex-wrap:wrap}.logo{width:100%;text-align:center}.search{order:3;flex-basis:100%}.hero{padding:25px 18px}.hero-art{display:none}.categories{grid-template-columns:repeat(2,1fr)}.products{gap:10px}.pic{height:145px;font-size:58px}.product h3{font-size:15px}.price{font-size:18px}}
+</style>
+</head>
+<body>
+<div class="top">🚚 التوصيل متوفر • 💵 الدفع عند الاستلام • ⭐ عروض جديدة</div>
+<header><div class="container nav">
+  <div class="logo">LAYTHPACK</div>
+  <div class="search"><input id="search" placeholder="🔎 قلب على المنتوج..."></div>
+  <button class="cart" onclick="openCart()">🛒 السلة (<span id="cartCount">0</span>)</button>
+</div></header>
+
+<main class="container">
+<section class="hero">
+  <div><h1>مرحبا بك في LAYTHPACK</h1><p>منتوجات متنوعة بثمن مناسب، اختار القسم ديالك واكتشف العروض.</p><a class="btn" href="#shop">شوف المنتوجات ↓</a></div>
+  <div class="hero-art">🛍️</div>
+</section>
+
+<h2>الأقسام</h2>
+<div class="categories" id="cats">
+  <div class="cat active" data-cat="all"><span>🛍️</span>الكل</div>
+  <div class="cat" data-cat="packs"><span>🎁</span>باكات متنوعة</div>
+  <div class="cat" data-cat="electronics"><span>📱</span>أجهزة إلكترونية</div>
+  <div class="cat" data-cat="clothes"><span>👕</span>باكات ملابس</div>
+  <div class="cat" data-cat="perfumes"><span>🌹</span>عطور</div>
+  <div class="cat" data-cat="fashion"><span>🕶️</span>إكسسوارات الأناقة</div>
+</div>
+
+<div class="toolbar" id="shop"><h2 style="margin:0">المنتوجات</h2><div class="count" id="count"></div></div>
+<div class="products" id="products"></div>
+
+<div class="features">
+ <div class="feature"><b>💵</b>الدفع عند الاستلام</div>
+ <div class="feature"><b>🚚</b>توصيل سريع</div>
+ <div class="feature"><b>📞</b>خدمة الزبناء</div>
+ <div class="feature"><b>🔒</b>طلب سهل وآمن</div>
+</div>
+</main>
+
+<footer><div class="container"><strong>LAYTHPACK</strong><br><span class="small">متجر إلكتروني متعدد المنتجات • © 2026</span></div></footer>
+
+<div class="modal" id="modal"><div class="box">
+<button class="close" onclick="closeModal()">×</button>
+<h2 id="modalTitle">طلب المنتوج</h2>
+<div id="cartItems"></div>
+<form class="form" onsubmit="sendOrder(event)">
+<input id="name" required placeholder="الاسم الكامل">
+<input id="phone" required placeholder="رقم الهاتف">
+<input id="city" required placeholder="المدينة">
+<textarea id="address" required rows="3" placeholder="العنوان"></textarea>
+<button type="submit">📲 تأكيد الطلب عبر WhatsApp</button>
+<p class="small">ملاحظة: قبل النشر، بدّل رقم WhatsApp داخل الكود بالرقم ديالك.</p>
+</form>
+</div></div>
+
+<script>
+const products=[
+ {id:1,cat:'packs',name:'باك متنوع اقتصادي',price:149,old:199,icon:'🎁'},
+ {id:2,cat:'packs',name:'باك مفاجأة Premium',price:249,old:299,icon:'🎁'},
+ {id:3,cat:'electronics',name:'سماعات Bluetooth',price:99,old:139,icon:'🎧'},
+ {id:4,cat:'electronics',name:'Power Bank',price:129,old:169,icon:'🔋'},
+ {id:5,cat:'electronics',name:'ساعة ذكية',price:179,old:229,icon:'⌚'},
+ {id:6,cat:'clothes',name:'باك ملابس رجالية',price:199,old:279,icon:'👕'},
+ {id:7,cat:'clothes',name:'باك Sport',price:229,old:299,icon:'👟'},
+ {id:8,cat:'perfumes',name:'عطر رجالي',price:149,old:199,icon:'🌹'},
+ {id:9,cat:'perfumes',name:'عطر نسائي',price:149,old:199,icon:'🌸'},
+ {id:10,cat:'fashion',name:'نظارات أنيقة',price:89,old:119,icon:'🕶️'},
+ {id:11,cat:'fashion',name:'محفظة جلدية',price:99,old:139,icon:'👝'},
+ {id:12,cat:'fashion',name:'ساعة كلاسيكية',price:159,old:199,icon:'⌚'}
+];
+let selected='all', cart=[];
+const productsEl=document.getElementById('products'), searchEl=document.getElementById('search');
+
+function render(){
+ const q=searchEl.value.trim().toLowerCase();
+ const list=products.filter(p=>(selected==='all'||p.cat===selected)&&p.name.toLowerCase().includes(q));
+ document.getElementById('count').textContent=list.length+' منتوج';
+ productsEl.innerHTML=list.map(p=>`
+ <article class="product"><div class="pic">${p.icon}</div><div class="info">
+ <h3>${p.name}</h3><div><span class="price">${p.price} درهم</span> <span class="old">${p.old} درهم</span></div>
+ <button class="orderbtn" onclick="add(${p.id})">🛒 أضف للسلة</button>
+ </div></article>`).join('');
+}
+document.querySelectorAll('.cat').forEach(el=>el.onclick=()=>{
+ document.querySelectorAll('.cat').forEach(x=>x.classList.remove('active'));el.classList.add('active');selected=el.dataset.cat;render();
+});
+searchEl.oninput=render;
+
+function add(id){cart.push(products.find(p=>p.id===id));update();openCart()}
+function update(){document.getElementById('cartCount').textContent=cart.length}
+function openCart(){document.getElementById('modalTitle').textContent='🛒 تأكيد الطلب';document.getElementById('cartItems').innerHTML=cart.length?cart.map(p=>`<div style="padding:8px;border-bottom:1px solid #eee">${p.icon} ${p.name} — <b>${p.price} درهم</b></div>`).join(''):'<p>السلة فارغة. اختار شي منتوج أولاً.</p>';document.getElementById('modal').classList.add('show')}
+function closeModal(){document.getElementById('modal').classList.remove('show')}
+function sendOrder(e){
+ e.preventDefault(); if(!cart.length){alert('اختار منتوج أولاً');return}
+ const total=cart.reduce((s,p)=>s+p.price,0);
+ const items=cart.map(p=>p.name+' ('+p.price+' DH)').join('، ');
+ const text=`السلام عليكم، بغيت نطلب من LAYTHPACK:%0Aالمنتوجات: ${items}%0Aالمجموع: ${total} DH%0Aالاسم: ${encodeURIComponent(document.getElementById('name').value)}%0Aالهاتف: ${encodeURIComponent(document.getElementById('phone').value)}%0Aالمدينة: ${encodeURIComponent(document.getElementById('city').value)}%0Aالعنوان: ${encodeURIComponent(document.getElementById('address').value)}`;
+ const WHATSAPP_NUMBER='212600000000'; // بدّل هذا الرقم برقم WhatsApp ديالك
+ window.open('https://wa.me/'+WHATSAPP_NUMBER+'?text='+text,'_blank');
+}
+render();
+</script>
+</body>
+</html>
