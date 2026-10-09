@@ -27,12 +27,43 @@ footer{margin-top:35px;background:#073f45;color:#fff;padding:25px 0;text-align:c
 @media(max-width:800px){.products{grid-template-columns:repeat(2,1fr)}.categories{grid-template-columns:repeat(3,1fr)}.features{grid-template-columns:repeat(2,1fr)}.hero h1{font-size:29px}.hero-art{font-size:70px}}
 @media(max-width:520px){.nav{height:auto;padding:10px 0;flex-wrap:wrap}.logo{width:100%;text-align:center}.search{order:3;flex-basis:100%}.hero{padding:25px 18px}.hero-art{display:none}.categories{grid-template-columns:repeat(2,1fr)}.products{gap:10px}.pic{height:145px;font-size:58px}.product h3{font-size:15px}.price{font-size:18px}}
 " content="متجر LAYTHPACK - باكات متنوعة، أجهزة إلكترونية، باكات ملابس، عطور وإكسسوارات الأناقة.">
-.logo {
+header .nav {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-areas:
+    "logo logo"
+    "search cart";
+  align-items: center;
+  gap: 12px;
+  padding: 15px 0;
+}
+
+header .logo {
+  grid-area: logo;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 6px;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+header .site-logo {
+  display: block;
+  width: 65px;
+  height: auto;
+  object-fit: contain;
+}
+
+header .search {
+  grid-area: search;
+  min-width: 0;
+}
+
+header .cart {
+  grid-area: cart;
+  white-space: nowrap;
 }
 </style>
 </head>
